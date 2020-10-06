@@ -5,8 +5,8 @@
 ```sh
 $ python backtracking.py
 ```
-[![N|Solid](ken thompson's algorithm.png)]
 
+![alt text](https://github.com/y1m1ng1in/Regular-Expression-Backtracking/blob/master/docs/backtracking%20algorithm.png)
 
 ### Compile-Search Algorithm
 
@@ -14,4 +14,4 @@ $ python backtracking.py
 $ python kenthompson.py
 ```
 
-[![N|Solid](backtracking algorithm.png)]
+![alt text](https://github.com/y1m1ng1in/Regular-Expression-Backtracking/blob/master/docs/ken%20thompson's%20algorithm.png)
