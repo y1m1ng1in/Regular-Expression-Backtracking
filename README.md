@@ -24,7 +24,6 @@ According to  [CloudFlare's official blog](https://blog.cloudflare.com/details-o
 
 ##### An Example: match `x=x` against `.*.*=.*` 
 ```sh
-$ python .\backtracking.py --num 1 --disable-graph
 step 1 Greedily match chars with 1st .*
 step 2 match index  [0, 3) with 1st .*   
 step 3 Greedily match chars with 2nd .*  
