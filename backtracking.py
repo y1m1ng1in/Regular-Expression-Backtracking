@@ -43,14 +43,19 @@ class Backtracking:
 
   def print_step(self, index_from, index_to, index_ptn, in_backtrack):
     print_num = { 0: '1st', 1: '2nd', 2: '3rd' }
+    print_second_step = lambda b: self.step if b else self.step+1
     if not in_backtrack:
-      print("step", self.step, "Greedily match chars with", print_num[index_ptn], ".*")
+      print("step", self.step, "Greedily match chars with",
+            print_num[index_ptn], ".*")
     else:
-      print("step", self.step, "Backtrack and rematch", print_num[index_ptn], ".*")
+      print("step", self.step, "Backtrack and rematch", 
+            print_num[index_ptn], ".*")
     if index_from == index_to:
-      print("step", self.step, "match empty string with", print_num[index_ptn], ".*")
+      print("step", print_second_step(in_backtrack), 
+            "match empty string with", print_num[index_ptn], ".*")
     else:
-      print("step", self.step, "match index ", "[" + str(index_from) + ", " + str(index_to) + ")", 
+      print("step", print_second_step(in_backtrack), "match index ", 
+            "[" + str(index_from) + ", " + str(index_to) + ")", 
             "with", print_num[index_ptn], ".*")
     if not in_backtrack:
       return 2
