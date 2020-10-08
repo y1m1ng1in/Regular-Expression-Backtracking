@@ -173,6 +173,7 @@ exp_num = args.num
 
 for i in range(1, exp_num + 1):
   string = "x=" + "x" * i
+  print("\nmatching", string)
   s = Simulation(nfa.nfa, string)
   r = s.run()
   print(r, s.step)

@@ -142,6 +142,7 @@ graph_disabled = args.disable_graph
 
 for i in range(1, exp_num + 1):
   b = Backtracking("x=" + "x" * i + "E")
+  print("\nmatching", "x=" + "x" * i)
   b.run()
   steps.append(b.step)
 
