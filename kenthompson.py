@@ -1,5 +1,6 @@
 # .*.*=.*
 from graphs import Plotting 
+import argparse
 
 expression = ".*.*=.*"
 
@@ -152,9 +153,23 @@ class Simulation:
     return reachables
 
 
+parser = argparse.ArgumentParser(description='ken thompson\'s algorithm simulator')
+parser.add_argument('--num', 
+                    '-n', 
+                    type=int,
+                    default=200, 
+                    help="number of experiment to execute")
+parser.add_argument('--disable-graph',
+                    '-d',
+                    action="store_true",
+                    help="disable print charts")
+args = parser.parse_args()
+
+graph_disabled = args.disable_graph
+
 nfa = Construction(postfix_exp, ops)
 steps = []
-exp_num = 200
+exp_num = args.num
 
 for i in range(1, exp_num + 1):
   string = "x=" + "x" * i
@@ -162,6 +177,9 @@ for i in range(1, exp_num + 1):
   r = s.run()
   print(r, s.step)
   steps.append(s.step)
-  
-p = Plotting("ken thompson's algorithm", steps, exp_num)
-p.plot()
+
+if not graph_disabled:
+  p = Plotting("ken thompson's algorithm", steps, exp_num)
+  p.plot()
+
+

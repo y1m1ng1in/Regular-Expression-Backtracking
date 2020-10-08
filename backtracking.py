@@ -1,5 +1,6 @@
 # .*.*=.*
 from graphs import Plotting
+import argparse
 
 class Backtracking:
 
@@ -123,12 +124,27 @@ class Backtracking:
 
 
 steps = []
-exp_num = 200
+
+parser = argparse.ArgumentParser(description='backtracking algorithm simulator')
+parser.add_argument('--num', 
+                    '-n', 
+                    type=int,
+                    default=200, 
+                    help="number of experiment to execute")
+parser.add_argument('--disable-graph',
+                    '-d',
+                    action="store_true",
+                    help="disable print charts")
+args = parser.parse_args()
+
+exp_num = args.num
+graph_disabled = args.disable_graph
 
 for i in range(1, exp_num + 1):
   b = Backtracking("x=" + "x" * i + "E")
   b.run()
   steps.append(b.step)
 
-p = Plotting("backtracking algorithm", steps, exp_num)
-p.plot()
+if not graph_disabled:
+  p = Plotting("backtracking algorithm", steps, exp_num)
+  p.plot()
